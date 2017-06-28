@@ -21,6 +21,9 @@ class Game extends React.Component {
   setCurrentTime = () => {
     this.setState({ time: new Date(Date.now())});
   }
+  componentWillMount() {
+    this.setCurrentTime()
+  }
 
   addPancake = () => {
     this.setState({
@@ -51,8 +54,8 @@ class Game extends React.Component {
           <div className="Game__score --burnt">Burnt: {burnt}</div>
           <div className="Game__score --raw">Raw: {raw}</div>
         </div>
-        <button 
-          onClick={this.addPancake} 
+        <button
+          onClick={this.addPancake}
           className="Game__button"
         >
           New pancake!
